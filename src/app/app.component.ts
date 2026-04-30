@@ -4,11 +4,7 @@ import { Component, OnInit } from '@angular/core';
   selector: 'app-root',
   template: `
   <div class="app">
-    <h1 (click)="handleClick($event)" #heading>
-      {{ newMessage ? newMessage : message }}
-    </h1>  
-    <input [value]="message" (input)="newMessage = messageInput.value" #messageInput>
-    <p>{{ messageInput.value }}</p>
+    <donut-list></donut-list>
   </div>`,
   styles: [
     `

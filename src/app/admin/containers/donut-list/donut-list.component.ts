@@ -1,15 +1,15 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewEncapsulation } from '@angular/core';
 import { Donut } from '../../models/donut.model';
 
 @Component({
   selector: 'donut-list',
+  encapsulation: ViewEncapsulation.Emulated,
   template: `
     <div *ngFor="let donut of donuts">
       <donut-card [donut]="donut"></donut-card>
     </div>
   `,
-  styles: [
-  ]
+  styles: []
 })
 export class DonutListComponent implements OnInit {
   donut!: Donut;
@@ -22,13 +22,14 @@ export class DonutListComponent implements OnInit {
         name: 'Just Chocolate',
         icon: 'just-chocolate',
         price: 119,
+        promo: true,
         description: 'For the pure chocolate lovers.'
       },
       {
         id: '3u98Kl',
         name: 'Glazed Fudge',
         icon: 'glazed-fudge',
-        price: 129,
+        price: 145,
         description: 'Stick goodness.'
       },
       {

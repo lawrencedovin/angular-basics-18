@@ -1,4 +1,9 @@
-<div class="donut-card">
+<div 
+    class="donut-card"
+    [ngClass]="{
+        'donut-card-promo': donut.promo
+    }"
+>
     <img 
         src="/assets/img/{{donut.icon}}.svg"
         [alt]="donut.name"

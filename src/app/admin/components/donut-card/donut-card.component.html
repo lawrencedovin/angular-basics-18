@@ -11,10 +11,18 @@
     />
     <div>
         <p class="donut-card-name">
-        {{ donut.name }}
+            {{ donut.name }}
+            <ng-container [ngSwitch]="donut.promo">
+                <span *ngSwitchCase="'new'" class="donut-card-label donut-card-label-new">
+                    NEW
+                </span>
+                <span *ngSwitchCase="'limited'" class="donut-card-label donut-card-label-limited">
+                    LIMITED
+                </span>
+            </ng-container>
         </p>
         <p class="donut-card-price">
-        {{ donut.price / 100 | currency: 'USD' }}
+            {{ donut.price / 100 | currency: 'USD' }}
         </p>
     </div>
 </div>

@@ -15,6 +15,21 @@
         font-size: 16px;
     }
 
+    &-label {
+        border-radius: 4px;
+        padding: 0 4px;
+        margin-left: 5px;
+        font-size: 12px;
+        &-new {
+            border: 1px solid #c14583;
+            color: #c14583;
+        }
+        &-limited {
+            border: 1px solid #f39200;
+            color: #f39200;
+        }
+    }
+
     &-price {
         font-size: 14px;
         color: #c14583;

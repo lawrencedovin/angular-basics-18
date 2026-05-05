@@ -5,12 +5,13 @@ import { Donut } from '../../models/donut.model';
   selector: 'donut-list',
   encapsulation: ViewEncapsulation.Emulated,
   template: `
-  <div *ngIf="donuts.length; else noDonutsBlock">
-    <ng-container *ngFor="let donut of donuts">
-      <donut-card [donut]="donut"></donut-card>
-    </ng-container>
-  </div>
-  <ng-template #noDonutsBlock>
+  <ng-container *ngIf="donuts.length; else noDonuts">
+    <donut-card 
+      *ngFor="let donut of donuts; trackBy: trackById" 
+      [donut]="donut">
+    </donut-card>
+</ng-container>
+  <ng-template #noDonuts>
     <p>No donuts here....</p>
   </ng-template>
   `,
@@ -27,7 +28,7 @@ export class DonutListComponent implements OnInit {
         name: 'Just Chocolate',
         icon: 'just-chocolate',
         price: 119,
-        promo: true,
+        promo: 'limited',
         description: 'For the pure chocolate lovers.'
       },
       {
@@ -35,6 +36,7 @@ export class DonutListComponent implements OnInit {
         name: 'Glazed Fudge',
         icon: 'glazed-fudge',
         price: 145,
+        promo: 'new',
         description: 'Stick goodness.'
       },
       {
@@ -43,8 +45,26 @@ export class DonutListComponent implements OnInit {
         icon: 'caramel-swirl',
         price: 129,
         description: 'Chocolate drizzled with caramel.'
+      },
+      {
+        id: '8am763',
+        name: 'Sour Supreme',
+        icon: 'sour-supreme',
+        price: 138,
+        description: 'For the sour advocate.'
+      },
+      {
+        id: '1cb753',
+        name: 'Zesty Lemon',
+        icon: 'zesty-lemon',
+        price: 100,
+        promo: 'limited',
+        description: 'Delicious luscious lemon.'
       }
     ];
   }
 
+  trackById(index: number, donut: Donut) {
+    return donut.id;
+  }
 }

@@ -1,5 +1,6 @@
-import { Component, OnInit, ViewEncapsulation } from '@angular/core';
+import { Component, inject, OnInit, ViewEncapsulation } from '@angular/core';
 import { Donut } from '../../models/donut.model';
+import { DonutService } from '../../services/donut.service';
 
 @Component({
   selector: 'donut-list',
@@ -20,48 +21,10 @@ import { Donut } from '../../models/donut.model';
 export class DonutListComponent implements OnInit {
   donut!: Donut;
   donuts!: Donut[];
+  donutService: DonutService = inject(DonutService);
 
   ngOnInit(): void {
-    this.donuts = [
-      {
-        id: 'y8z0As',
-        name: 'Just Chocolate',
-        icon: 'just-chocolate',
-        price: 119,
-        promo: 'limited',
-        description: 'For the pure chocolate lovers.'
-      },
-      {
-        id: '3u98Kl',
-        name: 'Glazed Fudge',
-        icon: 'glazed-fudge',
-        price: 145,
-        promo: 'new',
-        description: 'Stick goodness.'
-      },
-      {
-        id: 'ae098s',
-        name: 'Caramel Swirl',
-        icon: 'caramel-swirl',
-        price: 129,
-        description: 'Chocolate drizzled with caramel.'
-      },
-      {
-        id: '8am763',
-        name: 'Sour Supreme',
-        icon: 'sour-supreme',
-        price: 138,
-        description: 'For the sour advocate.'
-      },
-      {
-        id: '1cb753',
-        name: 'Zesty Lemon',
-        icon: 'zesty-lemon',
-        price: 100,
-        promo: 'limited',
-        description: 'Delicious luscious lemon.'
-      }
-    ];
+    this.donuts = this.donutService.getDonuts();
   }
 
   trackById(index: number, donut: Donut) {

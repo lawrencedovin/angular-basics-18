@@ -39,9 +39,11 @@ export class DonutService {
       }));
   }
 
-  updateDonut(payload: Donut): void {
-    this.donuts = this.donuts.map(donut => donut.id === payload.id ? payload : donut);
-    console.log('this.donuts after update: ', this.donuts);
+  updateDonut(payload: Donut): Observable<Donut> {
+    return this.http.put<Donut>(`/api/donuts/${payload.id}`, payload)
+      .pipe(tap((donut) => {
+        this.donuts = this.donuts.map(item => item.id === donut.id ? donut : item);
+      }));
   }
 
   deleteDonut(payload: Donut): void {

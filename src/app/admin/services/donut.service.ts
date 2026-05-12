@@ -46,8 +46,10 @@ export class DonutService {
       }));
   }
 
-  deleteDonut(payload: Donut): void {
-    this.donuts = this.donuts.filter(donut => donut.id !== payload.id);
-    console.log('this.donuts after delete: ', this.donuts);
+  deleteDonut(payload: Donut): Observable<Donut> {
+    return this.http.delete<Donut>(`/api/donuts/${payload.id}`)
+      .pipe(tap(() => {
+        this.donuts = this.donuts.filter(donut => donut.id !== payload.id);
+      }));
   }
 }

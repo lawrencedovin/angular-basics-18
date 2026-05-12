@@ -37,14 +37,6 @@
       "price": 100,
       "promo": "limited",
       "description": "Delicious luscious lemon."
-    },
-    {
-      "name": "Golden Donut",
-      "icon": "caramel-swirl",
-      "price": 999,
-      "promo": "limited",
-      "description": "Gold plated Donut.",
-      "id": "oeLc_c0"
     }
   ]
 }

@@ -1,4 +1,4 @@
-<form class="donut-form" #form="ngForm">
+<form class="donut-form" #form="ngForm" *ngIf="donut; else loading">
   <label>
     <span>Name</span>
     <input
@@ -98,7 +98,7 @@
   </label>
   <button
     type="button"
-    class="btn btn--green"
+    class="btn btn--green-light"
     (click)="handleCreate(form)"
     [disabled]="form.invalid"
   >
@@ -127,3 +127,4 @@
     Working...
   </div>
 </form>
+<ng-template #loading>Loading...</ng-template>

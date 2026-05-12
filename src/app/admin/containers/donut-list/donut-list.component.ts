@@ -6,7 +6,7 @@ import { DonutService } from '../../services/donut.service';
   selector: 'donut-list',
   encapsulation: ViewEncapsulation.Emulated,
   template: `
-  <ng-container *ngIf="donuts.length; else noDonuts">
+  <ng-container *ngIf="donuts?.length; else noDonuts">
     <donut-card 
       *ngFor="let donut of donuts; trackBy: trackById" 
       [donut]="donut">
@@ -19,12 +19,14 @@ import { DonutService } from '../../services/donut.service';
   styles: []
 })
 export class DonutListComponent implements OnInit {
-  donut!: Donut;
   donuts!: Donut[];
   donutService: DonutService = inject(DonutService);
 
   ngOnInit(): void {
-    this.donuts = this.donutService.getDonuts();
+    this.donutService.getDonuts()
+      .subscribe((donuts: Donut[]) => {
+        this.donuts = donuts;
+      });
   }
 
   trackById(index: number, donut: Donut) {

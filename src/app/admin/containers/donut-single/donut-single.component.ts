@@ -12,12 +12,16 @@ export class DonutSingleComponent implements OnInit {
   donutService: DonutService = inject(DonutService);
 
   ngOnInit(): void {
-    const id = '8am763';
-    this.donut = this.donutService.getDonut(id);
+    const id = 'XXXX';
+    this.donutService
+      .getDonut(id)
+      .subscribe(donut => this.donut = donut);
   }
 
   onCreate(donut: Donut): void {
-    this.donutService.createDonut(donut);
+    this.donutService
+      .createDonut(donut)
+      .subscribe(() => console.log('Created Successfully: '));
   }
 
   onUpdate(donut: Donut): void {

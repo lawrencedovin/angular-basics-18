@@ -37,6 +37,14 @@
       "price": 100,
       "promo": "limited",
       "description": "Delicious luscious lemon."
+    },
+    {
+      "name": "Vanilla Sundae",
+      "icon": "vanilla-sundae",
+      "price": 5,
+      "promo": "new",
+      "description": "Vanilla Sundae donut.",
+      "id": "pcIQmaj"
     }
   ]
 }

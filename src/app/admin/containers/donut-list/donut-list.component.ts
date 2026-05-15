@@ -6,27 +6,39 @@ import { DonutService } from '../../services/donut.service';
   selector: 'donut-list',
   encapsulation: ViewEncapsulation.Emulated,
   template: `
-  <ng-container *ngIf="donuts?.length; else noDonuts">
-    <donut-card 
-      *ngFor="let donut of donuts; trackBy: trackById" 
-      [donut]="donut">
-    </donut-card>
-</ng-container>
-  <ng-template #noDonuts>
-    <p>No donuts here....</p>
-  </ng-template>
+    <div class="donut-list-actions">
+      <a routerLink="new" class="btn btn--green">
+        New Donut
+        <img src="/assets/img/icon/plus.svg" />
+      </a>
+    </div>
+    <ng-container *ngIf="donuts?.length; else noDonuts">
+      <donut-card
+        *ngFor="let donut of donuts; trackBy: trackById"
+        [donut]="donut"
+      >
+      </donut-card>
+    </ng-container>
+    <ng-template #noDonuts>
+      <p>No donuts here....</p>
+    </ng-template>
   `,
-  styles: []
+  styles: [`
+    .donut-list {
+      &-actions {
+        margin-bottom: 10px;
+      }
+    }
+  `],
 })
 export class DonutListComponent implements OnInit {
   donuts!: Donut[];
   donutService: DonutService = inject(DonutService);
 
   ngOnInit(): void {
-    this.donutService.getDonuts()
-      .subscribe((donuts: Donut[]) => {
-        this.donuts = donuts;
-      });
+    this.donutService.getDonuts().subscribe((donuts: Donut[]) => {
+      this.donuts = donuts;
+    });
   }
 
   trackById(index: number, donut: Donut) {

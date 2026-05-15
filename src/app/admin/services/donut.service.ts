@@ -33,7 +33,7 @@ export class DonutService {
       );
   }
 
-  getDonut(id: string): Observable<Donut> {
+  getDonut(id: string | null): Observable<Donut> {
     return this.getDonuts()
       .pipe(
         map(donuts => {

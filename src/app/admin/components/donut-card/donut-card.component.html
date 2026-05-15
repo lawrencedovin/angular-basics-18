@@ -1,5 +1,6 @@
-<div 
+<a 
     class="donut-card"
+    [routerLink]="donut.id"
     [ngClass]="{
         'donut-card-promo': donut.promo
     }"
@@ -25,4 +26,4 @@
             {{ donut.price / 100 | currency: 'USD' }}
         </p>
     </div>
-</div>
+</a>

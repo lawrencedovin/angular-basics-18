@@ -9,6 +9,7 @@ import { Donut } from '../../models/donut.model';
 })
 export class DonutFormComponent {
   @Input() donut!: Donut;
+  @Input() isEdit!: boolean;
   @Output() create = new EventEmitter<Donut>();
   @Output() update = new EventEmitter<Donut>();
   @Output() delete = new EventEmitter<Donut>();

@@ -1,11 +1,11 @@
 import { Component, Input } from '@angular/core';
 import { Donut } from '../../models/donut.model';
-import { CommonModule } from '@angular/common';
+import { CurrencyPipe, NgClass, NgSwitch, NgSwitchCase } from '@angular/common';
 import { RouterModule } from '@angular/router';
 
 @Component({
   standalone: true,
-  imports: [CommonModule, RouterModule],
+  imports: [RouterModule, NgClass, NgSwitch, NgSwitchCase, CurrencyPipe],
   selector: 'donut-card',
   templateUrl: './donut-card.component.html',
   styleUrls: ['./donut-card.component.scss']

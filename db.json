@@ -45,14 +45,6 @@
       "promo": "new",
       "description": "Vanilla Sundae donut.",
       "id": "pcIQmaj"
-    },
-    {
-      "id": "9cpMfS3",
-      "name": "Super Sour Donut",
-      "icon": "sour-supreme",
-      "price": 11,
-      "promo": "limited",
-      "description": "Super Sour Donut"
     }
   ]
 }

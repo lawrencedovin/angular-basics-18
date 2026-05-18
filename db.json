@@ -4,7 +4,7 @@
       "id": "y8z0As",
       "name": "Just Chocolate",
       "icon": "just-chocolate",
-      "price": 119,
+      "price": 118,
       "promo": "limited",
       "description": "For the pure chocolate lovers."
     },
@@ -45,6 +45,14 @@
       "promo": "new",
       "description": "Vanilla Sundae donut.",
       "id": "pcIQmaj"
+    },
+    {
+      "id": "9cpMfS3",
+      "name": "Super Sour Donut",
+      "icon": "sour-supreme",
+      "price": 11,
+      "promo": "limited",
+      "description": "Super Sour Donut"
     }
   ]
 }

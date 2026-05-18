@@ -6,7 +6,7 @@ import { DonutService } from './admin/services/donut.service';
 export const AppRoutes: Routes = [
   { 
     path: 'admin', 
-    loadChildren: () => import('./admin/admin.module').then(m => m.AdminModule),
+    loadChildren: () => import('./admin/admin.routes').then(r => r.AdminRoutes),
     providers: [importProvidersFrom(HttpClientModule), DonutService]
   },
   {

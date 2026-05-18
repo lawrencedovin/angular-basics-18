@@ -1,8 +1,11 @@
 import { Component, Input, Output, EventEmitter } from '@angular/core';
-import { NgForm } from '@angular/forms';
+import { FormsModule, NgForm } from '@angular/forms';
 import { Donut } from '../../models/donut.model';
+import { CommonModule } from '@angular/common';
 
 @Component({
+  standalone: true,
+  imports: [CommonModule, FormsModule],
   selector: 'donut-form',
   templateUrl: './donut-form.component.html',
   styleUrls: ['./donut-form.component.scss']

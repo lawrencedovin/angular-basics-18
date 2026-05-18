@@ -1,8 +1,13 @@
 import { Component, inject, OnInit, ViewEncapsulation } from '@angular/core';
 import { Donut } from '../../models/donut.model';
 import { DonutService } from '../../services/donut.service';
+import { DonutCardComponent } from '../../components/donut-card/donut-card.component';
+import { CommonModule } from '@angular/common';
+import { RouterModule } from '@angular/router';
 
 @Component({
+  standalone: true,
+  imports: [CommonModule, RouterModule, DonutCardComponent],
   selector: 'donut-list',
   encapsulation: ViewEncapsulation.Emulated,
   template: `
